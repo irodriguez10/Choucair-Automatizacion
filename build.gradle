@@ -33,20 +33,26 @@ configurations.all {
         force "io.cucumber:cucumber-core:${cucumberVersion}"
     }
 }
-dependencies {
-    compile libs.logback
 
-    testCompile libs.test.cucumber.java,
-            libs.test.cucumber.junit,
-            libs.test.serenity.core,
-            libs.test.serenity.screenplay,
-            libs.test.serenity.junit,
-            libs.test.serenity.screenplayWebdriver,
-            libs.test.serenity.ensure,
-            libs.test.serenity.cucumber,
-            libs.test.junit,
-            libs.test.assertj
+dependencies {
+
+    //https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+
+    testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+
+
+    testImplementation libs.test.cucumber.java,
+    libs.test.cucumber.junit,
+    libs.test.serenity.core,
+    libs.test.serenity.screenplay,
+    libs.test.serenity.junit,
+    libs.test.serenity.screenplayWebdriver,
+    libs.test.serenity.ensure,
+    libs.test.serenity.cucumber,
+    libs.test.junit,
+    libs.test.assertj
 }
+
 
 test {
     testLogging.showStandardStreams = true

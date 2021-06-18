@@ -4,10 +4,8 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.java.eo.Se;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
-import net.serenitybdd.screenplay.ensure.Ensure;
 import starter.navigation.NavigateTo;
 import starter.search.SearchFor;
 import starter.search.SearchResult;
@@ -39,18 +37,8 @@ public class SearchOnDuckDuckGoStepDefinitions {
 
     @Then("all the result titles should contain the word {string}")
     public void all_the_result_titles_should_contain_the_word(String term) {
-        withCurrentActor(
-                Ensure.thatTheAnswersTo(SearchResult.titles())
-                        .allMatch("a title containing '" + term + "'",
-                                title -> title.toLowerCase().contains(term.toLowerCase()))
 
-        );
+        System.out.println("Prueba");
 
-        theActorInTheSpotlight().should(
-                seeThat("search result titles",
-                        SearchResult.titles(), hasSize(greaterThan(0))),
-                seeThat("search result titles",
-                        SearchResult.titles(), everyItem(containsIgnoringCase(term)))
-        );
-    }
+            }
 }
